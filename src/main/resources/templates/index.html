@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:sec="http://www.thymeleaf.org">
 
 <head>
     <!-- Required meta tags -->
@@ -32,7 +32,8 @@
                     <li class="nav-item my-link mx-2">
                         <a class="nav-link" th:href="@{/contacto}">Ayuda</a>
                     </li>
-                    <li class="nav-item my-link mx-2">
+
+                    <li sec:authorize="!isAuthenticated()" class="nav-item my-link mx-2">
                         <a class="nav-link" th:href="@{/login}">Iniciar sesión</a>
                     </li>
                     <li class="nav-item my-link mx-2">
