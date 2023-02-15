@@ -15,7 +15,6 @@ public class ReservaDTO {
 
     private Long id;
     private String nombre;
-    private String descripcion;
     private LocalDate fechaViaje;
     private double precio;
     private LocalDate fechaInsert;

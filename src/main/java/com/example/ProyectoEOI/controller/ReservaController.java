@@ -1,9 +1,12 @@
 package com.example.ProyectoEOI.controller;
 
+import com.example.ProyectoEOI.dto.ExcursionDTO;
 import com.example.ProyectoEOI.dto.ReservaDTO;
 import com.example.ProyectoEOI.dto.UsuarioDTO;
+import com.example.ProyectoEOI.exceptions.ExcursionException;
 import com.example.ProyectoEOI.exceptions.ReservaException;
 import com.example.ProyectoEOI.exceptions.UsuarioException;
+import com.example.ProyectoEOI.service.ExcursionService;
 import com.example.ProyectoEOI.service.ReservaService;
 import com.example.ProyectoEOI.service.UsuarioService;
 import com.example.ProyectoEOI.util.ListarProducto;
@@ -30,13 +33,15 @@ public class ReservaController {
 
     // TODO: Añadir el control de errores en pagina
 
+    private  final ExcursionService excSrvc;
     private final ReservaService service;
     private final UsuarioService usuarioService;
 
     @Autowired
-    public ReservaController(ReservaService service, UsuarioService usuarioService) {
+    public ReservaController(ReservaService service, UsuarioService usuarioService, ExcursionService excSrvc) {
         this.service = service;
         this.usuarioService = usuarioService;
+        this.excSrvc = excSrvc;
     }
     @GetMapping("/reserva/lista/{id}")
     public String verReservasCliente(
@@ -72,17 +77,28 @@ public class ReservaController {
 
         Integer pagina = page.map(integer -> integer - 1).orElse(0);
         Integer elementos = size.orElse(10);
-        Page<ReservaDTO> reserva = this.service.buscarReservas(PageRequest.of(pagina, elementos));
+        Page<ExcursionDTO> excursion = this.excSrvc.buscarExcursiones(PageRequest.of(pagina, elementos));
 
-        interfaz.addAttribute("pageNumber", numeroPaginas(reserva));
-        interfaz.addAttribute("lista", reserva);
+        interfaz.addAttribute("pageNumber", numeroPaginasExc(excursion));
+        interfaz.addAttribute("lista", excursion);
         //Ofrecer opciones de detalles, Comprar
-        return "reserva/lista";
+        return "excursion/lista";
     }
 
     private List<Integer> numeroPaginas(Page<ReservaDTO> reserva) {
         List<Integer> pageNumbers = new ArrayList<>();
         int numPaginas = reserva.getTotalPages();
+        if (numPaginas > 0) {
+            pageNumbers = IntStream.rangeClosed(1, numPaginas)
+                    .boxed()
+                    .collect(Collectors.toList());
+        }
+        return pageNumbers;
+    }
+
+    private List<Integer> numeroPaginasExc(Page<ExcursionDTO> exc) {
+        List<Integer> pageNumbers = new ArrayList<>();
+        int numPaginas = exc.getTotalPages();
         if (numPaginas > 0) {
             pageNumbers = IntStream.rangeClosed(1, numPaginas)
                     .boxed()
@@ -99,6 +115,17 @@ public class ReservaController {
         return "pasarelaDePago";
     }
 
+    @GetMapping(value = "/reserva/contratar/{id}")
+    public String crearReserva(@PathVariable("id")Long id) throws ExcursionException {
+        ExcursionDTO exc = this.excSrvc.buscarExcursionPorId(id);
+        ReservaDTO reserva = new ReservaDTO();
+        reserva.setNombre(exc.getNombre());
+        ReservaDTO nuevaReserva = this.service.crearReserva(reserva);
+        Long idReserva = reserva.getId();
+        return "redirect:/reserva/%s".formatted(idReserva);
+
+    }
+    /*
     @PostMapping(value = "/reserva")
     public String crearReserva(ReservaDTO reserva) {
         ReservaDTO nuevaReserva = this.service.crearReserva(reserva);
@@ -106,7 +133,7 @@ public class ReservaController {
         return "redirect:/reserva/%s".formatted(idReserva);
 
     }
-
+*/
     @GetMapping(value = "/reserva/{id}")
     public String buscarResevaPorId(@PathVariable Long id, ModelMap interfaz) throws ReservaException {
         ReservaDTO reserva = this.service.buscarReservaPorId(id);
@@ -126,6 +153,12 @@ public class ReservaController {
         return "redirect:/reserva";
     }
 
+    @PostMapping("/reserva/pago/{id}")
+    public String pagoreserva(@PathVariable Long id, ReservaDTO res) throws ReservaException {
+        res= this.service.buscarReservaPorId(id);
+        res.setPagada(true);
+        return "confirmacion_reserva";
+    }
 }
 
 
