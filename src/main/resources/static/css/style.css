@@ -1,0 +1,602 @@
+
+/*index.html*/
+
+/*HOME*/
+/*CARRUSEL*/
+.carousel-item {
+    height: 70vh;
+  }
+/*FIN CARRUSEL*/
+
+
+
+/*DESCRIPCIÓN VIAJES index.html*/
+.row {
+    margin-right: 0;
+}
+.nuestros_viajes {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 3rem;
+}
+
+.container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+
+hr {
+    margin:0;
+}
+
+
+.details {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-right: 3rem;
+    background-color: rgb(249, 246, 246);
+    border: 1px solid #b9d1e9;
+  }
+
+ /* @media (max-width: 575px) {
+    .details {
+
+    }
+  }*/
+
+  .precio {
+    color: #188df3;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+
+  .saber-mas {
+    background-color:rgb(52, 85, 230);;
+  }
+
+
+  .java {
+    width: 24rem;
+    height: 13rem;
+    padding-left: 3rem;
+  }
+
+
+  .menorca {
+    width: 24rem;
+    height: 12.8rem;
+    padding-left: 3rem;
+  }
+
+  .sierra {
+    width: 24rem;
+    height: 13rem;
+    padding-left: 3rem;
+  }
+/*FIN DESCRIPCIÓN VIAJES index.html*/
+/*FIN HOME*/
+
+
+
+/*FOOTER*/
+* {
+    margin: 0;
+    box-sizing: border-box
+  }
+
+
+.pie_pagina {
+    color: white;
+    width: 100%;
+    background-color: rgb(28, 27, 27);
+  }
+
+
+  .hr {
+    color: white;
+    margin: 0;
+  }
+
+
+  .grupo_1 {
+    margin-top: 3.5rem;
+  }
+
+
+  @media (max-width: 565px) {
+    .box1 {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+
+  .logo {
+   width:16rem;
+   height: 19rem;
+   padding-bottom: 5rem;
+  }
+
+
+  @media (max-width: 991px) {
+    .logo {
+      width: 6rem;
+      height: 6rem;
+      margin-top: 3rem;
+    }
+  }
+
+
+  @media (max-width: 565px) {
+    .logo {
+      width: 10rem;
+      height: 8rem;
+      margin-top: 0;
+    }
+  }
+
+
+  @media (max-width: 565px) {
+    .box2 {
+      margin-top: 3rem;
+      margin-bottom: 4rem;
+    }
+  }
+
+
+  h5 {
+    margin-bottom: 1.5rem;
+  }
+
+
+  @media (max-width: 767px){
+    .box4 {
+      margin-top: 4rem;
+    }
+  }
+
+
+  .red-social {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+
+  .fa-instagram {
+    color: white;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    text-decoration:none;
+  }
+
+
+  .fa-instagram:hover {
+    background-color: rgb(95, 95, 95);
+    transition: all 0.5s;
+  }
+
+
+  .fa-linkedin {
+    color: white;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    text-decoration:none;
+  }
+
+
+  .fa-linkedin:hover {
+    background-color: rgb(95, 95, 95);
+    transition: all 0.5s;
+  }
+
+
+  .fa-twitter {
+    color: white;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    text-decoration:none;
+  }
+
+
+  .fa-twitter:hover {
+    background-color: rgb(95, 95, 95);
+    transition: all 0.5s;
+  }
+
+
+  .fa-facebook-square {
+    color: white;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    text-decoration:none;
+  }
+
+
+  .fa-facebook-square:hover {
+    background-color: rgb(95, 95, 95);
+    transition: all 0.5s;
+  }
+
+
+  .grupo-2 {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    margin-top: -3.5rem;
+  }
+
+  /*FIN FOOTER*/
+  /*FIN index.html*/
+
+
+
+
+/*contacto.html*/
+/*FORMULARIO*/
+.color_F {
+    background-color: rgb(243, 247, 250);
+}
+
+
+.formulario {
+
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+.contactoColor {
+    text-decoration: underline;
+    padding-top: 6rem;
+}
+
+
+.letrasP {
+    font-weight: bolder;
+    padding-top: 2rem;
+}
+
+
+.form-control {
+    width: 60%;
+}
+
+.form-group {
+    font-weight:bold;
+}
+
+
+.nombre {
+    padding-top: 2rem;
+}
+
+.mensaje-2 {
+    padding-top: 2rem;
+}
+
+
+.mensaje {
+    padding: 3rem;
+}
+
+
+
+.enviar {
+    background-color: grey;
+    border-color:  grey;
+    margin-top: 0.5rem;
+    margin-bottom: 3rem;
+
+}
+/*FIN FORMULARIO*/
+/*FIN contacto.html*/
+
+
+
+
+/*perfil_usuario.html*/
+.titulo_datos_personales {
+    padding-left: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+.datos_personales {
+    padding-left: 3rem;
+}
+
+.titulo_reservas{
+     padding-left: 3rem;
+     padding-top: 8rem;
+     padding-bottom: 2rem;
+}
+/*FIN perfil_usuario.html*/
+
+
+
+/*viaje_informacion.html*/
+.titular_viajes{
+     border: 3px solid #b9d1e9;
+     border-radius: 30px;
+     background-color: rgb(249, 246, 246);
+     padding: 2rem;
+     position: absolute;
+     margin-top: -4.2rem;
+     margin-left: 3rem;
+     display: flex;
+     justify-content: center;
+     width: 75%;
+}
+
+
+.menu-viaje {
+    margin-top: 6rem;
+}
+
+
+.detalles-menu-viaje{
+    margin-right: 2rem;
+    color: black;
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 10rem;
+    text-align: center;
+    background-color: rgb(221, 235, 249);
+}
+
+
+.info_viaje {
+    margin-top: 4rem;
+    margin-bottom: 8rem;
+}
+
+.titulo_incluido {
+    border:  3px solid #b9d1e9;
+    border-radius: 30px;
+}
+
+.titulo_incluido2 {
+    margin: 2rem;
+}
+
+
+.info_incluido {
+    margin: 1.5rem;
+}
+
+
+.info_incluido2{
+    margin-bottom: 2rem;
+}
+
+.lazy-rounded-full {
+    width: 35px;
+
+}
+
+
+
+/*ITINERARIO*/
+.itinerario {
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+}
+
+
+.color_itinerario{
+    background-color: #e0edf9;
+}
+/*FIN ITINERARIO*/
+
+/*DETALLES*/
+.detalles_y_calendario {
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+}
+
+
+
+.detalles {
+    border: 0.5px solid #b9d1e9;
+    padding: 1rem;
+}
+
+/*FIN DETALLES*/
+
+
+/*CALENDARIO*/
+.texto_calendario {
+    margin-left: 14rem;
+}
+
+.calendar{
+    background-color: white;
+    width: 100%;
+    max-width: 600px;
+    margin: 1em auto;
+    padding: .5em 0;
+    border:  2px solid #b9d1e9;
+
+}
+
+
+.calendar_info {
+    display: flex;
+    align-items: center;
+    padding: 0 2em;
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+
+.calendar_prev {
+     cursor: pointer;
+     font-size: 1.3em;
+     margin-right: auto;
+}
+
+.calendar_next {
+    cursor: pointer;
+    font-size: 1.3em;
+    margin-left: auto;
+}
+
+
+.calendar_week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+}
+
+.calendar_dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+}
+
+
+.calendar_item {
+    text-align: center;
+    line-height: 2;
+}
+
+
+.calendar_month{
+    padding: .5em 1em;
+}
+
+
+.calendar_year{
+    padding: .5em 1em;
+}
+
+
+
+.calendar_last_days {
+    opacity: .3;
+}
+
+
+.plazas {
+    margin-top: 3.2rem;
+    background-color: white;
+}
+
+
+.tramitar {
+    justify-content: center;
+}
+
+
+
+.tramitar_reserva {
+    padding: 0.8rem;
+    font-size: 1.4rem;
+    border-radius: 30px;
+    padding-right: 8rem;
+    padding-left: 8rem;
+}
+/*FIN CALENDARIO*/
+
+
+/*CANCELACION*/
+.cancelacion2 {
+    margin-bottom: 5rem;
+}
+
+.cancelacion {
+    margin-bottom: 1rem;
+}
+/*FIN CANCELACION*/
+/*FIN viaje_informacion.html*/
+
+
+
+/*pasarelaDePago.html*/
+.form-container1 {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  border: 2px solid #b9d1e9;
+}
+
+.personal-information {
+  background-color: #3C8DC5;
+  color: #fff;
+  padding: 1px 0;
+  text-align: center;
+}
+
+
+.pagos {
+  display: block;
+  height: 50px;
+  width: 100%;
+  border: 1px solid #b9d1e9;
+}
+
+
+.boton_pagar {
+    padding: 1rem;
+    font-size: 22px;
+    margin-bottom: 5rem;
+}
+/*FIN pasarelaDePago.html*/
+
+
+/*login.html*/
+.imagen_fondo {
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.iniciar_sesion {
+    flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 8rem;
+      background-color: white;
+      padding-left: 2rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      padding-right: 2rem;
+}
+
+
+.email_sesion {
+    padding-top: 1.3rem;
+}
+
+
+.olvidado_contrasenya {
+    font-size: 12px;
+}
+
+
+.boton_iniciar_sesion {
+    background-color: black;
+    border-color: black;
+}
+/*FIN login.html*/
+
+/*cancelar_reserva.html*/
+.cancelacion_reserva {
+    margin-bottom: 5rem;
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+    width: 120%;
+}
+
+
+.boton_pagar2 {
+    padding: 0.8rem;
+    width: 40%;
+    font-size: 20px;
+    margin-left: 9rem;
+    margin-top: 1.5rem;
+}
+
+/*FIN cancelar_reserva.html*/

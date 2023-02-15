@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+    <!-- Bootstrap CSS -->
+    <title>Index</title>
+
+</head>
+
+<body>
+<!--HEADER-->
+<header>
+    <nav class="navbar navbar-expand-lg bg-white">
+        <div class="container-fluid">
+            <a class="navbar-brand titulo" th:href="@{/}">BeProw</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item my-link mx-2">
+                        <a class="nav-link" th:href="@{/}">Inicio</a>
+                    </li>
+                    <li class="nav-item my-link mx-2">
+                        <a class="nav-link" th:href="@{/contacto}">Ayuda</a>
+                    </li>
+                    <li class="nav-item my-link mx-2">
+                        <a class="nav-link" th:href="@{/login}">Iniciar sesión</a>
+                    </li>
+                    <li class="nav-item my-link mx-2">
+                        <a class="nav-link" th:href="@{/registro}">Registrarse</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!--FIN HEADER-->
+
+<!--HOME-->
+<div class="row">
+    <div class="col-4 col-sm-4 col-md-4">
+    </div>
+
+    <div class="col-4 col-sm-4 col-md-4">
+        <div id="mensaje" class="alert alert-success mt-5 " role="alert">
+            <p>PAGO ACEPTADO. ¡GRACIAS POR SU COMPRA!</p>
+            <p>La reserva ha sido confirmada. Puede ver los datos de su reserva en su Perfil de Usuario.</p>
+        </div>
+
+        <form action="/pasarela" class="form-container1" method="POST">
+        <div class="personal-information">
+            <h2>Información de pago</h2>
+        </div>
+
+        <input class= "pagos" type="text" name="first-name" placeholder="Nombre"/>
+        <input class= "pagos" type="text" name="last-name" placeholder="Apellidos"/>
+        <input class= "pagos" type="text" name="number" placeholder="Numero de tarjeta"/>
+        <input class= "pagos" type="text" name="expiry" placeholder="MM / YY"/>
+        <input class= "pagos" type="text" name="cvc" placeholder="CCV"/>
+        </form>
+
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary boton_pagar" type="button" onclick="mensajePago()">PAGAR</button>
+        </div>
+
+    </div>
+</div>
+<!--FIN HOME-->
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+<script src= "../templates/main.js"></script>
+
+<script>
+    function mensajePago() {
+        document.getElementById("mensaje").classList.toggle("d-none")
+    }
+
+</script>
+</body>
+</html>

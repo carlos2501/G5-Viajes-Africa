@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+    <!-- Bootstrap CSS -->
+    <title>Index</title>
+
+</head>
+
+<body>
+<!--HEADER-->
+<header>
+    <nav class="navbar navbar-expand-lg bg-white">
+        <div class="container-fluid">
+            <a class="navbar-brand titulo" th:href="@{/}">BeProw</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item my-link mx-2">
+                        <a class="nav-link" th:href="@{/}">Inicio</a>
+                    </li>
+                    <li class="nav-item my-link mx-2">
+                        <a class="nav-link" th:href="@{/contacto}">Ayuda</a>
+                    </li>
+                    <li class="nav-item my-link mx-2">
+                        <a class="nav-link" th:href="@{/login}">Iniciar sesión</a>
+                    </li>
+                    <li class="nav-item my-link mx-2">
+                        <a class="nav-link" th:href="@{/registro}">Registrarse</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!--FIN HEADER-->
+
+<!-- HOME -->
+<div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="../static/img/java.jpg" class="d-block w-100" alt="java">
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row titular_viajes">
+        <div class="col-4 col-sm-4 col-md-4">
+            <h3>VIAJE A LA ISLA DE JAVA</h3>
+        </div>
+
+        <div class="col-3 col-sm-3 col-md-3">
+            <p>13 días / 12 noches</p>
+        </div>
+
+        <div class="col-3 col-sm-3 col-md-3">
+            <h5>PRECIO: 1390€</h5>
+        </div>
+
+        <div class="col-2 col-sm-2 col-md-2">
+            <a href="#disponibilidad" class="btn btn-primary">Ver disponibilidad</a>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- MENÚ DE CADA VIAJE-->
+<nav class="navbar navbar-expand-lg bg-light menu-viaje">
+    <div class="container">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link detalles-menu-viaje" href="#informacion"><strong>Información</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link detalles-menu-viaje" href="#itinerario"><strong>Itinerario</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link detalles-menu-viaje" href="#detalles"><strong>Detalles</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link detalles-menu-viaje" href="#cancelacion"><strong>Cancelación</strong></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--FIN MENÚ DE CADA VIAJE-->
+
+
+<!--INFORMACIÓN VIAJE A JAVA-->
+<div class="container">
+    <div class="row info_viaje">
+        <div class="col-7 col-sm-7 col-md-7" id="informacion">
+            <h3>INFORMACIÓN DEL VIAJE:</h3>
+            <p>Un viaje a Indonesia: un recorrido inolvidable por los templos hindúes de Yakarta, los bosques vírgenes de Bali
+                y playas paradisíacas.
+            </p>
+
+            <p>Un viaje de ensueño a Indonesia: trece días increíbles para descubrir todas las caras de un país polifacético.
+                Es fácil imaginar por qué esta perla del sudeste asiático es el destino favorito de los amantes de la naturaleza,
+                el surf y la cultura. Además de bucear con tortugas, visitar templos hindúes, hacer senderismo en el monte Bromo
+                y experimentar la emoción de surfear en los mejores lugares de la Isla de los Dioses, conoceremos a los balineses,
+                uno de los pueblos más acogedores y amables del mundo que nos harán sentir como en casa desde el primer momento.
+            </p>
+
+            <p>Viajaremos a Bali, pasando por el Bosque de los Monos de Ubud hasta las playas de Kuta y desembarcaremos en las
+                Islas Gili, ¡un verdadero paraíso en la tierra! En esta excursión descubriremos las islas indonesias desde una
+                perspectiva completamente nueva: iremos a los lugares más recónditos para apreciar toda la belleza de la naturaleza
+                y la historia cultural de estos misteriosos lugares. ¿Estás preparado? ¡Nos vemos en Java!
+            </p>
+
+
+
+            <div class="row">
+                <div class="col-6 col-sm-6 col-md-6">
+                    <h6>Esfuerzo físico</h6>
+                    <p>Este viaje requiere espíritu de adaptación y flexibilidad. Los traslados, en muchos casos,
+                        durarán bastantes horas. Los primeros días los días son intensos y están previstas pocas horas de sueño
+                        debido a las excursiones al amanecer de los volcanes. La subida al monte Ijen es de una dificultad media
+                        y exige una buena condición física. Dedicaremos los últimos días a relajarnos y encontrar la paz que nos
+                        ofrecen las blancas playas tropicales de Indonesia.
+                    </p>
+                </div>
+
+                <div class="col-6 col-sm-6 col-md-6">
+                    <h6>Mood del viaje</h6>
+                    <p>Entusiasmo, curiosidad y espíritu de adaptación son las características principales que deben poseer
+                        los viajeros que quieran descubrir los secretos de Indonesia. Es obligatoria la mochila de viaje y no la
+                        maleta, ya que se prevén nueve cambios de hotel.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 col-sm-6 col-md-6">
+                    <h6>¿Qué necesito para viajar a Indonesia?</h6>
+                    <p>Pasaporte: en vigor y con un valor residual mínimo de 6 meses desde la entrada al país
+                        Visado: online o a la llegada (30€)
+                        Vacunación: ciclo de vacunación completo contra el Covid-19 con al menos 14 días desde la última dosis o
+                        certificado de recuperación. Los viajeros que no cumplan este requisito tienen que someterse a 5 días de cuarentena.
+                        Atención: presentar billete de ida y vuelta, descargar la App PenduliLinguli y rellenar el módulo de e-HAC Indonesia.
+                        Para más información, te recomendamos visitar la página web del MAEC.
+                    </p>
+
+                    <p>Si procedes de un país diferente de España, te recomendamos visitar la web de exteriores y los requisitos de tu país
+                        de origen.
+                    </p>
+                </div>
+
+                <div class="col-6 col-sm-6 col-md-6">
+                    <h6>Encuentro y despedida</h6>
+                    <p>Este viaje empieza y termina en Yakarta . Nos encontraremos alrededor de las 18:00 el primer día del viaje
+                        y el último podrás decidir cuándo irte (desde por la mañana).Descubre más sobre el encuentro aquí.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-5 col-sm-5 col-md-5">
+            <div class="titulo_incluido">
+                <div class="titulo_incluido2">
+                    <h3>QUÉ ESTÁ INCLUIDO:</h3>
+                </div>
+
+                <ul class=info_incluido>
+                    <li class="info_incluido2">
+                        <div class="flex">
+                            <div class="row">
+                                <div class="col-2 col-sm-2 col-md-2">
+                                    <img alt="noches" title="noches" class="lazy-rounded-full"
+                                         src="https://cdn.weroad.io/common/images/icons-services/dark-gray/bed.svg">
+                                </div>
+                                <div class="col-10 col-sm-10 col-md-10">
+                                    <span>12 noches en habitación individual</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="info_incluido2">
+                        <div class="flex">
+                            <div class="row">
+                                <div class="col-2 col-sm-2 col-md-2">
+                                    <img alt="desayunos" title="desayunos" class="lazy-rounded-full"
+                                         src="https://cdn.weroad.io/common/images/icons-services/dark-gray/breakfast.svg">
+                                </div>
+                                <div class="col-10 col-sm-10 col-md-10">
+                                    <span>Todos los desayunos y cenas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="info_incluido2">
+                        <div class="flex">
+                            <div class="row">
+                                <div class="col-2 col-sm-2 col-md-2">
+                                    <img alt="clase de cocina" title="clase de cocina" class="lazy-rounded-full"
+                                         src="https://cdn.weroad.io/common/images/icons-services/dark-gray/pasta.svg">
+                                </div>
+                                <div class="col-10 col-sm-10 col-md-10">
+                                    <span><strong><em>"Food experience": </em></strong>clase de cocina tradicional balinesa de medio día</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="info_incluido2">
+                        <div class="flex">
+                            <div class="row">
+                                <div class="col-2 col-sm-2 col-md-2">
+                                    <img alt="meditacion" title="meditacion" class="lazy-rounded-full"
+                                         src="https://cdn.weroad.io/common/images/icons-services/dark-gray/trekking.svg">
+                                </div>
+                                <div class="col-10 col-sm-10 col-md-10">
+                                    <span>Clase de meditación y control del estrés en la naturaleza</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="info_incluido2">
+                        <div class="flex">
+                            <div class="row">
+                                <div class="col-2 col-sm-2 col-md-2">
+                                    <img alt="Vuelo interno hacia Yogyakarta el día 2" title="Vuelo interno hacia Yogyakarta el día 2"
+                                         class="lazy-rounded-full"
+                                         src="https://cdn.weroad.io/common/images/icons-services/dark-gray/plane.svg">
+                                </div>
+                                <div class="col-10 col-sm-10 col-md-10">
+                                    <span>Vuelo interno hacia Yogyakarta el día 2</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li class="info_incluido2">
+                        <div class="flex">
+                            <div class="row">
+                                <div class="col-2 col-sm-2 col-md-2">
+                                    <img alt="minibus privado" title="minibus privado" class="lazy-rounded-full"
+                                         src="https://cdn.weroad.io/common/images/icons-services/dark-gray/minivan.svg">
+                                </div>
+                                <div class="col-10 col-sm-10 col-md-10">
+                                    <span>Minibus privado con conductor para los transfers de los días 2 y 4</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li class="info_incluido2">
+                        <div class="flex">
+                            <div class="row">
+                                <div class="col-2 col-sm-2 col-md-2">
+                                    <img alt="minibus privado Ubud" title="minibus privado Ubud" class="lazy-rounded-full"
+                                         src="https://cdn.weroad.io/common/images/icons-services/dark-gray/minivan.svg">
+                                </div>
+                                <div class="col-10 col-sm-10 col-md-10">
+                                    <span>Minibus privado con conductor y ferry para el transfer de Banyuwangi a Ubud el día 5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="info_incluido2">
+                        <div class="flex">
+                            <div class="row">
+                                <div class="col-2 col-sm-2 col-md-2">
+                                    <img alt="excursion" title="excursion" class="lazy-rounded-full"
+                                         src="https://cdn.weroad.io/common/images/icons-services/dark-gray/trekking.svg">
+                                </div>
+                                <div class="col-10 col-sm-10 col-md-10">
+                                    <span>Excursión para admirar el amanecer en el Monte Bromo y clase de crecimiento personal</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="info_incluido2">
+                        <div class="flex">
+                            <div class="row">
+                                <div class="col-2 col-sm-2 col-md-2">
+                                    <img alt="ferri" title="ferri" class="lazy-rounded-full"
+                                         src="https://cdn.weroad.io/common/images/icons-services/dark-gray/boat.svg">
+                                </div>
+                                <div class="col-10 col-sm-10 col-md-10">
+                                    <span>Ferri hacia Gili Trawangan el día 8</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="info_incluido2">
+                        <div class="flex">
+                            <div class="row">
+                                <div class="col-2 col-sm-2 col-md-2">
+                                    <img alt="avion" title="avion" class="lazy-rounded-full"
+                                         src="https://cdn.weroad.io/common/images/icons-services/dark-gray/plane.svg">
+                                </div>
+                                <div class="col-10 col-sm-10 col-md-10">
+                                    <span>Vuelo interno hacia Yakarta el día 12</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="info_incluido2">
+                        <div class="flex">
+                            <div class="row">
+                                <div class="col-2 col-sm-2 col-md-2">
+                                    <img alt="cancelacion" title="cancelacion" class="lazy-rounded-full"
+                                         src="https://cdn.weroad.io/common/images/icons-services/dark-gray/give-money.svg">
+                                </div>
+                                <div class="col-10 col-sm-10 col-md-10">
+                                    <span>Cancelación gratuita con reembolso del 100% hasta 31 días antes de la salida</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="info_incluido2">
+                        <div class="flex">
+                            <div class="row">
+                                <div class="col-2 col-sm-2 col-md-2">
+                                    <img alt="coordinadores" title="coordinadores" class="lazy-rounded-full"
+                                         src="https://cdn.weroad.io/common/images/icons-services/dark-gray/coordinator.svg">
+                                </div>
+                                <div class="col-10 col-sm-10 col-md-10">
+                                    <span>La asistencia de los coordinadores y profesores</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="info_incluido2">
+                        <div class="flex">
+                            <div class="row">
+                                <div class="col-2 col-sm-2 col-md-2">
+                                    <img alt="seguro medico" title="seguro medico" class="lazy-rounded-full"
+                                         src="https://cdn.weroad.io/common/images/icons-services/dark-gray/insurance.svg">
+                                </div>
+                                <div class="col-10 col-sm-10 col-md-10">
+                                    <span>Seguro médico - maleta (límites máximos de 1.500€ España, 7.500€ Europa, 12.000€ mundo)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--FIN INFORMACIÓN VIAJE A JAVA-->
+
+
+
+<!--ITINERARIO-->
+<div class="container borde_itinerario" id="itinerario">
+    <div class="col-7 col-sm-7 col-md-7">
+    <h2 class="itinerario">Itinerario</h2>
+    <div class="row itinerario color_itinerario">
+        <div class="col-2 col-sm-2 col-md-2">
+            <h5>DÍA 1</h5>
+        </div>
+
+        <div class="col-8 col-sm-8 col-md-8">
+            <p>Yakarta: bienvenidos a Indonesia, el viaje empieza aquí</p>
+        </div>
+    </div>
+
+    <div class="row itinerario">
+        <div class="col-2 col-sm-2 col-md-2">
+            <h5>DÍA 2</h5>
+        </div>
+
+        <div class="col-7 col-sm-7 col-md-7">
+            <p>En el centro de la Isla de Java: Yogyakarta y el templo Borobudur</p>
+        </div>
+    </div>
+
+    <div class="row itinerario color_itinerario">
+        <div class="col-2 col-sm-2 col-md-2">
+            <h5>DÍA 3</h5>
+        </div>
+
+        <div class="col-7 col-sm-7 col-md-7">
+            <p>Al descubrimiento de la Java Oriental, hasta las laderas del monte Bromo</p>
+        </div>
+    </div>
+
+    <div class="row itinerario">
+        <div class="col-2 col-sm-2 col-md-2">
+            <h5>DÍA 4</h5>
+        </div>
+
+        <div class="col-7 col-sm-7 col-md-7">
+            <p>Excursión al monte Bromo para disfrutar de un amanecer maravilloso</p>
+        </div>
+    </div>
+
+    <div class="row itinerario color_itinerario">
+        <div class="col-2 col-sm-2 col-md-2">
+            <h5>DÍA 5</h5>
+        </div>
+
+        <div class="col-7 col-sm-7 col-md-7">
+            <p>De Java a Bali: el itinerario que nos lleva a descubrir una nueva isla</p>
+        </div>
+    </div>
+
+    <div class="row itinerario">
+        <div class="col-2 col-sm-2 col-md-2">
+            <h5>DÍA 6</h5>
+        </div>
+
+        <div class="col-7 col-sm-7 col-md-7">
+            <p>Ubud: el Bosque de los Monos y una tarde de yoga y meditación</p>
+        </div>
+    </div>
+
+    <div class="row itinerario color_itinerario">
+        <div class="col-2 col-sm-2 col-md-2">
+            <h5>DÍA 7</h5>
+        </div>
+
+        <div class="col-7 col-sm-7 col-md-7">
+            <p>De Ubud a Semyniak: ¡un día de relax!</p>
+        </div>
+    </div>
+
+    <div class="row itinerario">
+        <div class="col-2 col-sm-2 col-md-2">
+            <h5>DÍA 8</h5>
+        </div>
+
+        <div class="col-7 col-sm-7 col-md-7">
+            <p>Semyniak, entre playas y vida nocturna</p>
+        </div>
+    </div>
+
+    <div class="row itinerario color_itinerario">
+        <div class="col-2 col-sm-2 col-md-2">
+            <h5>DÍA 9</h5>
+        </div>
+
+        <div class="col-7 col-sm-7 col-md-7">
+            <p>Mar, playas, relax y algo de trekking: ha llegado el momento de las islas Gili</p>
+        </div>
+    </div>
+
+    <div class="row itinerario">
+        <div class="col-2 col-sm-2 col-md-2">
+            <h5>DÍA 10</h5>
+        </div>
+
+        <div class="col-7 col-sm-7 col-md-7">
+            <p>Todavía en las Islas Gili: las barreras de coral de Trawangan</p>
+        </div>
+    </div>
+
+    <div class="row itinerario color_itinerario">
+        <div class="col-2 col-sm-2 col-md-2">
+            <h5>DÍA 11</h5>
+        </div>
+
+        <div class="col-7 col-sm-7 col-md-7">
+            <p>Un día en Lombok: para despedirnos del mar en la playa de Sengiggi</p>
+        </div>
+    </div>
+
+    <div class="row itinerario">
+        <div class="col-2 col-sm-2 col-md-2">
+            <h5>DÍA 12</h5>
+        </div>
+
+        <div class="col-7 col-sm-7 col-md-7">
+            <p>De nuevo en Yakarta: compras y cena de despedida</p>
+        </div>
+    </div>
+
+    <div class="row itinerario color_itinerario">
+        <div class="col-2 col-sm-2 col-md-2">
+            <h5>DÍA 13</h5>
+        </div>
+
+        <div class="col-7 col-sm-7 col-md-7">
+            <p>Selamat Tinggal Indonesia</p>
+        </div>
+    </div>
+    </div>
+</div>
+<!--FIN ITINERARIO-->
+
+
+
+<!--DETALLES-->
+<div class="container" id="detalles">
+    <div class="row detalles_y_calendario">
+        <div class="col-6 col-sm-6 col-md-6 detalles_viaje">
+            <div class="row container ">
+                <div class="col-10 col-sm-10 col-md-10 detalles">
+                    <h2>Detalles</h2>
+                </div>
+                <div class="col-4 col-sm-4 col-md-4 detalles">
+                    <h5>Duración</h5>
+                </div>
+                <div class="col-6 col-sm-6 col-md-6 detalles">
+                    <p>La duración del viaje será de 13 días y 12 noches</p>
+                </div>
+
+                <div class="col-4 col-sm-4 col-md-4 detalles">
+                    <h5>Idioma</h5>
+                </div>
+                <div class="col-6 col-sm-6 col-md-6 detalles">
+                    <p>Español</p>
+                </div>
+
+                <div class="col-4 col-sm-4 col-md-4 detalles">
+                    <h5>Talleres</h5>
+                </div>
+                <div class="col-6 col-sm-6 col-md-6 detalles">
+                    <p>En este viaje, además de poder disfrutar de todas las excursiones, se ofrecen los siguientes talleres:
+                        - Taller de cocina tradicional balinesa
+                        - Taller de meditación, control del estrés y felicidad.
+                        - Taller de habilidades sociales y comunicación.
+                    </p>
+                </div>
+
+                <div class="col-4 col-sm-4 col-md-4 detalles">
+                    <h5>Importante</h5>
+                </div>
+                <div class="col-6 col-sm-6 col-md-6 detalles">
+                    <p>Tener pasaporte y las vacunas exigidas para este viaje</p>
+                </div>
+
+                <div class="col-4 col-sm-4 col-md-4 detalles">
+                    <h5>Sostenibilidad</h5>
+                </div>
+                <div class="col-6git col-sm-6 col-md-6 detalles">
+                    <p>Bono digital, no tienes que imprimir tu confirmación de reserva</p>
+                </div>
+            </div>
+        </div>
+
+<!-- FIN DETALLES-->
+
+
+<!--CALENDARIO-->
+        <div class="col-6 col-sm-6 col-md-6" id="disponibilidad">
+            <h2 class="texto_calendario">Calendario</h2>
+
+           <div class="calendar">
+               <div class="calendar_info">
+                   <div class="calendar_prev" id="prev-month">&#9664;</div>
+                   <div class="calendar_month" id="month"></div>
+                   <div class="calendar_year" id="year"></div>
+                   <div class="calendar_next" id="next-month">&#9654;</div>
+               </div>
+
+               <div class="calendar_week">
+                   <div class="calendar_day calendar_item">Lunes</div>
+                   <div class="calendar_day calendar_item">Martes</div>
+                   <div class="calendar_day calendar_item">Miércoles</div>
+                   <div class="calendar_day calendar_item">Jueves</div>
+                   <div class="calendar_day calendar_item">Viernes</div>
+                   <div class="calendar_day calendar_item">Sábado</div>
+                   <div class="calendar_day calendar_item">Domingo</div>
+               </div>
+
+               <div class="calendar_dates" id="dates"></div>
+
+               <div class="plazas">
+                   <p>Plazas disponibles:</p>
+                   <br>
+                   <p>Número de personas:</p>
+               </div>
+           </div>
+            <div class="d-grid gap-2 tramitar">
+                <a href="tramitar_reserva.html" class="btn btn-primary tramitar_reserva" type="button">TRAMITAR RESERVA</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--FIN CALENDARIO-->
+
+
+
+<!--CANCELACION-->
+<div class="container cancelacion2" id="cancelacion">
+    <div class="row">
+        <div class="col-10 col-sm-10 col-md-10">
+            <h2 class="cancelacion">Cancelación</h2>
+                <p>¡Gratis! Cancela sin gastos hasta 15 días antes del inicio del viaje. Si cancelas con menos tiempo,
+                    o no te presentas, no se ofrece ningún reembolso.</p>
+        </div>
+    </div>
+</div>
+<!-- FIN CANCELACION -->
+
+
+<!-- FIN HOME -->
+
+
+
+<!-- FOOTER -->
+<footer class="pie_pagina">
+    <hr class="hr">
+
+    <div class="grupo_1 container">
+        <div class="row">
+            <div class="box1 col-sm-4 col-md-3">
+                <img src="../static/img/logo_beprow.png" alt="logo" class="logo">
+            </div>
+
+            <div class="box2 col-sm-4 col-md-3">
+                <h5><b><u>SOBRE NOSOTROS</u></b></h5>
+                <p>Información corporativa</p>
+                <p>Preguntas frecuentes</p>
+                <p><a href="contacto.html ">Atención al cliente</a></p>
+                <p>Empleo</p>
+            </div>
+
+
+            <div class="box3 col-sm-4 col-md-3">
+                <h5><b><u>INFORMACIÓN LEGAL</u></b></h5>
+                <p>Configuración de cookies</p>
+                <p>Términos y Condiciones</p>
+                <p>Política de privacidad</p>
+                <p>Avisos legales</p>
+            </div>
+
+            <div class="box4 col-sm-12 col-md-3">
+                <h5 class="text-center"><b><u>SÍGUENOS</u></b></h5>
+                <div class="red-social">
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-facebook-square"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grupo-2 col-12">
+        <p class="m-0">&copy; 2023 <b>NombreProyecto</b> - Todos los derechos reservados.</p>
+    </div>
+</footer>
+<!-- FIN FOOTER -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+<script src= "../templates/main.js"></script>
+</body>
+</html>
