@@ -44,6 +44,9 @@ public class Usuario {
     @OneToMany(mappedBy= "usuario", fetch=FetchType.LAZY)
     private Set <Opinion> opiniones;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Role> roles;
+
 
 }
 

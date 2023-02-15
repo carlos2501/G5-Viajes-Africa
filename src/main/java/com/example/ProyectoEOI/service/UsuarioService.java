@@ -15,8 +15,8 @@ import java.util.Optional;
 @Service
 public class UsuarioService {
 
-    private final UsuarioRepository repository;
-    private final UsuarioMapper mapper;
+    public final UsuarioRepository repository;
+    public final UsuarioMapper mapper;
 
     @Autowired
     public UsuarioService(UsuarioRepository repository, UsuarioMapper mapper) {
@@ -35,7 +35,12 @@ public class UsuarioService {
         return this.mapper.entityToDto(usuario);
     }
 
-    public UsuarioDTO login(String email,String password) throws UsuarioException{
+    public UsuarioDTO buscarUsuarioPorEmail(String email) throws UsuarioException {
+        Usuario usuario = repository.findUsuarioByEmail(email);
+        return this.mapper.entityToDto(usuario);
+    }
+
+    /*public UsuarioDTO login(String email,String password) throws UsuarioException{
         Optional<Usuario> optionalUsuario = this.repository.findByEmail(email);
         System.out.println("Datos de entrada login: " +  email + ":" +password );
         if (optionalUsuario.isEmpty()) {
@@ -49,7 +54,18 @@ public class UsuarioService {
         }
         return this.mapper.entityToDto(usuario);
     }
+    */
 
+    public UsuarioDTO guardar(UsuarioDTO usuarioDtoPsw){
+        System.out.println("usuarioDto:" +usuarioDtoPsw.getNombre() );
+        //Traduzco del dto con datos de entrada a la entidad
+        final Usuario entidad = mapper.dtoToEntity(usuarioDtoPsw);
+        System.out.println("Entidad:" +entidad.getNombre() );
+        //Guardo el la base de datos
+        Usuario entidadGuardada =  repository.save(entidad);
+        //Traducir la entidad a DTO para devolver el DTO
+        return mapper.entityToDto(entidadGuardada);
+    }
     public UsuarioDTO crearUsuario(UsuarioDTO usuarioDto) throws UsuarioException {
         if (!usuarioDto.getPassword().equals(usuarioDto.getConfirmarPassword())) {
             throw new UsuarioException("Las contraseñas no coinciden");
@@ -94,4 +110,7 @@ public class UsuarioService {
         return optionalUsuario.get();
     }
 
+    public Object getMapper() {
+        return this.mapper;
+    }
 }

@@ -7,6 +7,10 @@ import com.example.ProyectoEOI.model.Reserva;
 import com.example.ProyectoEOI.model.Usuario;
 import com.example.ProyectoEOI.service.ReservaService;
 import com.example.ProyectoEOI.service.UsuarioService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.WebAttributes;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -45,30 +49,32 @@ public class UsuarioController {
         System.out.println("usr :" + usr);
         String password = loginDto.getPassword();
         System.out.println("pass :" + password);
-        try {
-            UsuarioDTO usuario = usuarioService.login(usr, password);
-            return String.format("redirect:/reserva/lista/%s", usuario.getId());
-        } catch(Exception ex){
-            errorMessage = ex.getMessage() ;
-            model.addAttribute("errorMessage", errorMessage);
+        return "index";
+        /*if (usuarioService.repository.repValidarPassword(usr,password) > 0)
+        {
+            return "index";
+        }else {
             return "login";
+        }*/
+    }
+
+    @GetMapping("/login-error")
+    public String login(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession(false);
+        String errorMessage = null;
+        if (session != null) {
+            AuthenticationException ex = (AuthenticationException) session
+                    .getAttribute(  WebAttributes.AUTHENTICATION_EXCEPTION);
+            if (ex != null) {
+                errorMessage = ex.getMessage() ;
+            }
         }
+        model.addAttribute("errorMessage", errorMessage);
+        return "login";
     }
 
 
-    @GetMapping("/registro")
-    public String registroUsuario(ModelMap interfaz) {
-        UsuarioDTO usuarioDto = new UsuarioDTO();
-        interfaz.addAttribute("datosUsuario", usuarioDto);
-        return "registro";
-    }
 
-    @PostMapping(value = "/registro")
-    public String crearUsuario(UsuarioDTO usuario) throws UsuarioException {
-        UsuarioDTO nuevoUsuario = this.usuarioService.crearUsuario(usuario);
-        Long id = nuevoUsuario.getId();
-        return "redirect:/usuario/%s".formatted(id);
-    }
 
     @GetMapping(value="/usuario/{id}")
     public String verUsuario(@PathVariable Long id, ModelMap interfaz) throws UsuarioException {
