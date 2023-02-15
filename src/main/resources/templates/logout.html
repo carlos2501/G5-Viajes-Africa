@@ -49,26 +49,7 @@
     </div>
 
     <div class="col-4 col-sm-4 col-md-4">
-        <form class="iniciar_sesion container"  role="form" th:action="@{/login}"
-              th:object="${loginForm}" method="post">
-            <div class="mb-3 email_sesion">
-                <label for="exampleFormControlInput1" class="form-label">E-mail</label>
-                <input type="email" name="username" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
-
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" name="password" id="exampleFormControlInput2">
-            </div>
-
-            <p class="olvidado_contraseña"><strong>¿Has olvidado tu contraseña?</strong></p>
-
-            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                <button type="submit"  class="btn btn-primary btn-lg">Entrar</button>
-            </div>
-            <!--/*@thymesVar id="errorMessage" type="java.lang.String"*/-->
-            <div class="alert" th:if="${errorMessage}" th:text="${errorMessage}"></div>
-        </form>
+      <p><h1>Gracias por usar nuestra aplicación</h1></p>
     </div>
 </div>
 <!--FIN HOME-->

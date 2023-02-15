@@ -91,7 +91,7 @@
                     <div  th:if="${lista.totalPages > 0}" class="pagination"
                           th:each="pageNumber : ${pageNumbers}">
                         <li th:class="${pageNumber==lista.number + 1} ? active">
-                            <a href="#" th:href="@{/reserva/lista/${idUsuario}(size=${listausuarios.size}, page=${pageNumber})}"
+                            <a href="#" th:href="@{/reserva/lista(size=${listausuarios.size}, page=${pageNumber})}"
                                th:text=${pageNumber}></a>
                         </li>
                     </div>

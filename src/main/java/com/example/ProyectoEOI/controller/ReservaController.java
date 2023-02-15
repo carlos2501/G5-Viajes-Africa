@@ -10,9 +10,12 @@ import com.example.ProyectoEOI.service.ExcursionService;
 import com.example.ProyectoEOI.service.ReservaService;
 import com.example.ProyectoEOI.service.UsuarioService;
 import com.example.ProyectoEOI.util.ListarProducto;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +26,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-@SessionAttributes("reservas")
+
 @Controller
 public class ReservaController {
     @ModelAttribute("reservas")
@@ -43,27 +46,29 @@ public class ReservaController {
         this.usuarioService = usuarioService;
         this.excSrvc = excSrvc;
     }
-    @GetMapping("/reserva/lista/{id}")
+    @GetMapping("/reserva/lista")
     public String verReservasCliente(
-            @PathVariable("id")Long id,
             @RequestParam("page")Optional<Integer> page,
             @RequestParam("size") Optional<Integer> size,
             ModelMap interfaz, RedirectAttributes attributes) throws UsuarioException {
 
         //Vamos a introducir el usuario en la sesión
-        ListarProducto listarProducto = new ListarProducto();
-        listarProducto.setIdUsuario(id);
-        attributes.addFlashAttribute("reservas",listarProducto);
+        Long userId = 0L;
+        UsuarioDTO usuarioDTO = new UsuarioDTO();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication.isAuthenticated()){
+            usuarioDTO =  usuarioService.buscarUsuarioPorEmail(authentication.getName());
+            userId = usuarioDTO.getId();
+        }
 
 
 
         Integer pagina = page.map(integer -> integer - 1).orElse(0);
         Integer elementos = size.orElse(10);
-        UsuarioDTO usuario = usuarioService.buscarUsuarioPorId(id);
+        UsuarioDTO usuario = usuarioService.buscarUsuarioPorId(userId);
         Page<ReservaDTO> reserva = this.service.buscarReservaUsuario(usuario, PageRequest.of(pagina, elementos));
 
         interfaz.addAttribute("pageNumber", numeroPaginas(reserva));
-        interfaz.addAttribute("idusuario",id);
         interfaz.addAttribute("lista", reserva);
 
         //Ofrecer opciones de detalles, Cancelar
