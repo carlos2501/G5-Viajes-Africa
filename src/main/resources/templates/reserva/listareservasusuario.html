@@ -52,30 +52,30 @@
         <form action="#" th:action="@{/}" method="post">
             <a th:href="@{/reserva/crear}"><h2>Contratar nuevo viaje</h2></a>
             <div class="table-responsive">
-                <!-- Opcion 1 : tabla con contenido ( recomandable en caso de listas-->
+
                 <table class="table table-bordered table-hover">
                     <tr>
                         <th><h3>Nombre</h3></th>
-                        <th><h3>Fecha</h3></th>
-                        <th><h3>Numero de personas</h3></th>
+                        <th><h3>Id</h3></th>
+                        <th><h3>Excursion</h3></th>
+                        <th><h3>Usuario</h3></th>
                         <th>&nbsp</th>
                         <th>&nbsp</th>
                     </tr>
-                    <tr th:each="excursion, posicion : ${lista.getContent()}">
-                        <td th:text="${excursion.nombre}"></td>
-                        <td th:text="${excursion.duracion}"></td>
-                        <td th:text="${excursion.maxPersonas}"></td>
+                    <tr th:each="item, posicion : ${listaR.getContent()}">
+                        <td th:text="${item.nombre}"></td>
+                        <td th:text="${item.id}"></td>
+                        <td th:text="${item.idExcursion}"></td>
+                        <td th:text="${item.idUsuario}"></td>
                         <td>
-                            <!-- meter un link para ver  con texto "ver"-->
-                            <a th:href="@{'/reserva/'+ ${excursion.id}}">Detalles</a>
+                            <a th:href="@{'/reserva/pago/'+${item.id}}"><span th:text="${item.pagada} ? 'Pagada' : 'Pagar'"></span></a>
                         </td>
                         <td>
-                            <!-- meter un boton para borrar  con un boton-->
-                            <button type="submit" value="Cancelar" th:formaction="'/reserva/'+ ${excursion.id} +'/cancelar'">Cancelar</button>
+                            <button th:unless="${item.pagada}" type="submit" value="Cancelar" th:formaction="'/reserva/cancelar/'+ ${item.id}">Anular</button>
                         </td>
                     </tr>
                     <!--Mostramos una ultima fila con inormación cuando no hay registros -->
-                    <tr th:if="${lista ==null or  lista.empty}">
+                    <tr th:if="${listaR ==null or  listaR.empty}">
                         <td colspan="13" class="text-center">No hay reservas</td>
                     </tr>
                 </table>
@@ -83,14 +83,14 @@
         </form>
     </div>
     <!-- preparamos el div para poner los numeros de pagina-->
-    <div  th:if="${lista!=null and !lista.empty}" >
+    <div  th:if="${listaR!=null and !listaR.empty}" >
         <div class="text-center">
             <nav>
                 <ul class="pagination" sd:pagination="full">
                     <!--  si hay menos del numero minimo de registos no muestro la barra-->
-                    <div  th:if="${lista.totalPages > 0}" class="pagination"
+                    <div  th:if="${listaR.totalPages > 0}" class="pagination"
                           th:each="pageNumber : ${pageNumbers}">
-                        <li th:class="${pageNumber==lista.number + 1} ? active">
+                        <li th:class="${pageNumber==listaR.number + 1} ? active">
                             <a href="#" th:href="@{/reserva/lista(size=${listausuarios.size}, page=${pageNumber})}"
                                th:text=${pageNumber}></a>
                         </li>

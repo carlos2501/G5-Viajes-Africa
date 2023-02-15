@@ -20,7 +20,7 @@
 <header>
     <nav class="navbar navbar-expand-lg bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand titulo" th:href="@{/}">BeProw</a>
+            <a class="navbar-brand titulo" th:href="@{/static}">BeProw</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item my-link mx-2">
-                        <a class="nav-link" th:href="@{/}">Inicio</a>
+                        <a class="nav-link" th:href="@{/static}">Inicio</a>
                     </li>
                     <li class="nav-item my-link mx-2">
                         <a class="nav-link" th:href="@{/contacto}">Ayuda</a>
@@ -61,59 +61,32 @@
     </div>
 
 
-    <div class="container">
-        <div class="row" th:if="${lista != null and lista.hasContent()}">
-            <p>Mostrando <span sd:page-size-selector="javascript"></span> excursiones</p>
+    <!--DESCRIPCIÓN DE CADA VIAJE-->
+    <!--VIAJE A ISLA DE JAVA-->
+    <div class="details">
+        <div class="row">
+            <div class="col-4 col-sm-4 col-md-4">
+                <div>
+                    <img th:src="@{/img/java2.jpg}" alt="imagen de Java" class="java">
+                </div>
+            </div>
 
-            <table class="table table-bordered table-hover">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Detalles</th>
-                    <th>Duracion</th>
-                    <th>Numero de personas</th>
-                    <th>Información</th>
-                    <th>Itinerario</th>
-                    <th>Precio</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr th:each="excursion, posicion : ${lista.getContent()}">
-                    <td th:text="${excursion.nombre}"></td>
 
-                    <td th:text="${excursion.duracion}"></td>
-                    <td th:text="${excursion.maxPersonas}"></td>
-                    <td th:text="${excursion.informacion}"></td>
-
-                    <td th:text="${excursion.precio}"></td>
-                    <td ><button>Saber más</button></td>
-
-                    <td ><a th:href="@{/reserva/contratar(id=${excursion.id})}">Contratar</a></td>
-
-                </tr>
-            </table>
-        </div>
-        <div class="row" th:if="${lista == null or !lista.hasContent()}">
-            <p>No se han econtrado excursiones disponibles</p>
-        </div>
-
-        <!-- preparamos el div para poner los numeros de pagina-->
-        <div  th:if="${lista!=null and lista.hasContent()}" >
-            <div class="text-center">
-                <nav>
-                    <ul class="pagination" sd:pagination="full">
-                        <!--  si hay menos del numero minimo de registos no muestro la barra-->
-                        <div  th:if="${lista.totalPages > 0}" class="pagination"
-                              th:each="pageNumber : ${pageNumbers}">
-                            <li th:class="${pageNumber==lista.number + 1} ? active">
-                                <a href="#" th:href="@{/clientes(size=${lista.size}, page=${pageNumber})}"
-                                   th:text=${pageNumber}></a>
-                            </li>
-                        </div>
-                    </ul>
-                </nav>
+            <div class="col-8 col-sm-8 col-md-8">
+                <h4 class="título"><b><u>VIAJE A LA ISLA DE JAVA</u></b></h4>
+                <p><b>En este viaje tendremos la oportunidad de recorrer la Isla de Java, en Indonesia.
+                    Será un viaje lleno de aventuras, naturaleza, y actividades variadas. </b></p>
+                <p class="precio">PRECIO: 1390€</p>
+                <a href="..." class="btn btn-primary saber-mas">Saber más</a>
             </div>
         </div>
     </div>
+    <br>
+    <br>
+    <!--FIN VIAJE A ISLA DE JAVA-->
+
+<!--FIN HOME-->
+
 
 <!-- FOOTER -->
 <footer class="pie_pagina">
@@ -129,7 +102,7 @@
                 <h5><b><u>SOBRE NOSOTROS</u></b></h5>
                 <p>Información corporativa</p>
                 <p>Preguntas frecuentes</p>
-                <p><a href="contacto.html ">Atención al cliente</a></p>
+                <p><a href="../contacto.html ">Atención al cliente</a></p>
                 <p>Empleo</p>
             </div>
 

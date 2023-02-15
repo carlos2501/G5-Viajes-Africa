@@ -1,0 +1,68 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sd="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de excursiones</title>
+</head>
+
+<body>
+    <div class="cabecera">
+        <h1>Listado de Excursiones</h1>
+        <a href="excursion">Añadir nueva excursion</a>
+    </div>
+    <div class="container">
+        <div class="row" th:if="${lista != null and lista.hasContent()}">
+            <p>Mostrando <span sd:page-size-selector="javascript"></span> excursiones</p>
+
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Detalles</th>
+                    <th>Duracion</th>
+                    <th>Numero de personas</th>
+                    <th>Información</th>
+                    <th>Itinerario</th>
+                    <th>Precio</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr th:each="excursion, posicion : ${lista.getContent()}">
+                    <td th:text="${excursion.nombre}"></td>
+
+                    <td th:text="${excursion.duracion}"></td>
+                    <td th:text="${excursion.maxPersonas}"></td>
+                    <td th:text="${excursion.informacion}"></td>
+
+                    <td th:text="${excursion.precio}"></td>
+                    <td ><button>Saber más</button></td>
+
+                    <td ><a th:href="@{/reserva/contratar(id=${excursion.id})}">Contratar</a></td>
+
+                </tr>
+            </table>
+        </div>
+        <div class="row" th:if="${lista == null or !lista.hasContent()}">
+            <p>No se han econtrado excursiones disponibles</p>
+        </div>
+
+        <!-- preparamos el div para poner los numeros de pagina-->
+        <div  th:if="${lista!=null and lista.hasContent()}" >
+            <div class="text-center">
+                <nav>
+                    <ul class="pagination" sd:pagination="full">
+                        <!--  si hay menos del numero minimo de registos no muestro la barra-->
+                        <div  th:if="${lista.totalPages > 0}" class="pagination"
+                              th:each="pageNumber : ${pageNumbers}">
+                            <li th:class="${pageNumber==lista.number + 1} ? active">
+                                <a href="#" th:href="@{/clientes(size=${lista.size}, page=${pageNumber})}"
+                                   th:text=${pageNumber}></a>
+                            </li>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

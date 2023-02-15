@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="ultraq.net.nz/thymeleaf/layout"
-      xmlns:sd="w3.org/1999/xhtml" xmlns:sec="thymeleaf.org/thymeleaf-extras-springsecurity6">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <!-- Required meta tags -->
@@ -33,15 +32,8 @@
                     <li class="nav-item my-link mx-2">
                         <a class="nav-link" th:href="@{/contacto}">Ayuda</a>
                     </li>
-                    <li sec:authorize="isAuthenticated()" class="nav-item my-link mx-2">
-                        <a class="nav-link" th:href="@{/reserva/lista}">Mis reservas</a>
-                    </li>
-
-                    <li sec:authorize="!isAuthenticated()" class="nav-item my-link mx-2">
+                    <li class="nav-item my-link mx-2">
                         <a class="nav-link" th:href="@{/login}">Iniciar sesión</a>
-                    </li>
-                    <li sec:authorize="isAuthenticated()" class="nav-item my-link mx-2">
-                        <a class="nav-link" th:href="@{/logout}">Cerrar sesión</a>
                     </li>
                     <li class="nav-item my-link mx-2">
                         <a class="nav-link" th:href="@{/registro}">Registrarse</a>
@@ -53,67 +45,26 @@
 </header>
 <!--FIN HEADER-->
 
+
 <!--HOME-->
-
-<div class="container-fluid home">
-    <div>
-        <h2 class="nuestros_viajes"><u>NUESTROS VIAJES:</u></h2>
+<div class="row">
+    <div class="col-4 col-sm-4 col-md-4">
     </div>
 
 
-    <div class="container">
-        <div class="row" th:if="${lista != null and lista.hasContent()}">
-            <p>Mostrando <span sd:page-size-selector="javascript"></span> excursiones</p>
-
-            <table class="table table-bordered table-hover">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Detalles</th>
-                    <th>Duracion</th>
-                    <th>Numero de personas</th>
-                    <th>Información</th>
-                    <th>Itinerario</th>
-                    <th>Precio</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr th:each="excursion, posicion : ${lista.getContent()}">
-                    <td th:text="${excursion.nombre}"></td>
-
-                    <td th:text="${excursion.duracion}"></td>
-                    <td th:text="${excursion.maxPersonas}"></td>
-                    <td th:text="${excursion.informacion}"></td>
-
-                    <td th:text="${excursion.precio}"></td>
-                    <td ><button>Saber más</button></td>
-
-                    <td ><a th:href="@{/reserva/contratar(id=${excursion.id})}">Contratar</a></td>
-
-                </tr>
-            </table>
-        </div>
-        <div class="row" th:if="${lista == null or !lista.hasContent()}">
-            <p>No se han econtrado excursiones disponibles</p>
-        </div>
-
-        <!-- preparamos el div para poner los numeros de pagina-->
-        <div  th:if="${lista!=null and lista.hasContent()}" >
-            <div class="text-center">
-                <nav>
-                    <ul class="pagination" sd:pagination="full">
-                        <!--  si hay menos del numero minimo de registos no muestro la barra-->
-                        <div  th:if="${lista.totalPages > 0}" class="pagination"
-                              th:each="pageNumber : ${pageNumbers}">
-                            <li th:class="${pageNumber==lista.number + 1} ? active">
-                                <a href="#" th:href="@{/clientes(size=${lista.size}, page=${pageNumber})}"
-                                   th:text=${pageNumber}></a>
-                            </li>
-                        </div>
-                    </ul>
-                </nav>
-            </div>
+    <div class="col-4 col-sm-4 col-md-4">
+        <div id="cancelacion_reserva" class="alert alert-success mt-5 alerta" role="alert">
+            <p>¡SU RESERVA con id: <span th:text="${reserva.getId()}"> </span> HA SIDO PAGADA! ¡MUCHAS GRACIAS POR CONFIAR SIN RESERVAS EN NOSOTROS! </p>
+            <p>Le llegará un e-mail a su correo confirmando el pago de la reserva.</p>
+            <p>Si tiene alguna duda o consulta, póngase en contacto con nosotros. ¡Estaremos encantados de ayudarle!</p>
         </div>
     </div>
+    <form>
+        <button type="submit" class="btn btn-primary" th:formaction="@{/reserva/lista}">Volver</button>
+    </form>
+</div>
+<!FIN HOME-->
+
 
 <!-- FOOTER -->
 <footer class="pie_pagina">
@@ -122,7 +73,7 @@
     <div class="grupo_1 container">
         <div class="row">
             <div class="box1 col-sm-4 col-md-3">
-                    <img th:src="@{/img/logo_beprow.png}" alt="logo" class="logo">
+                <img src="../static/img/logo_beprow.png" alt="logo" class="logo">
             </div>
 
             <div class="box2 col-sm-4 col-md-3">
@@ -159,6 +110,13 @@
     </div>
 </footer>
 <!-- FIN FOOTER -->
+
+<script>
+    function mensajePago() {
+        document.getElementById("cancelacion_reserva").classList.toggle("d-none")
+    }
+
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="es" xmlns:sec="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="ultraq.net.nz/thymeleaf/layout"
+      xmlns:sd="w3.org/1999/xhtml" xmlns:sec="thymeleaf.org/thymeleaf-extras-springsecurity6">
 
 <head>
     <!-- Required meta tags -->
@@ -32,9 +33,15 @@
                     <li class="nav-item my-link mx-2">
                         <a class="nav-link" th:href="@{/contacto}">Ayuda</a>
                     </li>
+                    <li sec:authorize="isAuthenticated()" class="nav-item my-link mx-2">
+                        <a class="nav-link" th:href="@{/reserva/lista}">Mis reservas</a>
+                    </li>
 
                     <li sec:authorize="!isAuthenticated()" class="nav-item my-link mx-2">
                         <a class="nav-link" th:href="@{/login}">Iniciar sesión</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()" class="nav-item my-link mx-2">
+                        <a class="nav-link" th:href="@{/logout}">Cerrar sesión</a>
                     </li>
                     <li class="nav-item my-link mx-2">
                         <a class="nav-link" th:href="@{/registro}">Registrarse</a>

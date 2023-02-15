@@ -49,13 +49,10 @@ public class ReservaService {
         return this.mapper.entityToDto(reserva);
     }
 
-    public ReservaDTO modificarReserva(ReservaDTO reservaDTO, Long id) throws ReservaException {
-        Reserva reserva = buscarReserva(id);
-        reserva.setFechaViaje(reservaDTO.getFechaViaje());
-        reserva = this.repository.save(reserva);
-        return this.mapper.entityToDto(reserva);
+    public ReservaDTO modificarReserva(ReservaDTO reservaDTO) throws ReservaException {
+        this.repository.save(mapper.dtoToEntity(reservaDTO));
+        return reservaDTO;
     }
-
     public void eliminarReserva(Long id) throws ReservaException {
         Reserva reserva = buscarReserva(id);
         this.repository.delete(reserva);

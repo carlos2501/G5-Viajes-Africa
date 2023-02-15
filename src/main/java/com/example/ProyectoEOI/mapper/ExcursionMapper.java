@@ -14,6 +14,7 @@ public class ExcursionMapper extends AbstractMapper<Excursion, ExcursionDTO> {
                 .nombre(excursion.getNombre())
                 .duracion(excursion.getDuracion())
                 .maxPersonas(excursion.getMaxPersonas())
+                .precio(excursion.getPrecio())
                 .build();
     }
 
@@ -24,7 +25,7 @@ public class ExcursionMapper extends AbstractMapper<Excursion, ExcursionDTO> {
                 .nombre(excursionDto.getNombre())
                 .duracion(excursionDto.getDuracion())
                 .maxPersonas(excursionDto.getMaxPersonas())
-
+                .precio(excursionDto.getPrecio())
                 .build();
     }
 }

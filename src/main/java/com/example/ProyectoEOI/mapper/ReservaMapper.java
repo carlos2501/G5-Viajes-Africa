@@ -3,10 +3,17 @@ package com.example.ProyectoEOI.mapper;
 import com.example.ProyectoEOI.dto.ReservaDTO;
 import com.example.ProyectoEOI.model.Reserva;
 import com.example.ProyectoEOI.model.Usuario;
+import com.example.ProyectoEOI.repository.ExcursionRepository;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ReservaMapper extends AbstractMapper<Reserva, ReservaDTO> {
+
+    private final ExcursionRepository repository;
+
+    public ReservaMapper(ExcursionRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public ReservaDTO entityToDto(Reserva reserva) {
@@ -19,6 +26,7 @@ public class ReservaMapper extends AbstractMapper<Reserva, ReservaDTO> {
                 .fechaAct(reserva.getFechaAct())
                 .idUsuario(reserva.getUsuario().getId())
                 .activo(reserva.isActivo())
+                .idExcursion(reserva.getExcursion().getId())
                 .build();
     }
 
@@ -33,6 +41,7 @@ public class ReservaMapper extends AbstractMapper<Reserva, ReservaDTO> {
                 .fechaAct(reservaDTO.getFechaAct())
                 .usuario(Usuario.builder().id(reservaDTO.getIdUsuario()).build())
                 .activo(reservaDTO.isActivo())
+                .excursion(repository.findById(reservaDTO.getIdExcursion()).get())
                 .build();
     }
 }

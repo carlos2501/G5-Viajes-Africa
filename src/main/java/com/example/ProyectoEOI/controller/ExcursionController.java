@@ -1,7 +1,6 @@
 package com.example.ProyectoEOI.controller;
 
 import com.example.ProyectoEOI.dto.ExcursionDTO;
-import com.example.ProyectoEOI.dto.UsuarioDTO;
 import com.example.ProyectoEOI.exceptions.ExcursionException;
 import com.example.ProyectoEOI.service.ExcursionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +40,7 @@ public class ExcursionController {
         interfaz.addAttribute("pageNumber", numeroPaginas(excursiones));
         interfaz.addAttribute("lista", excursiones);
 
-        return "excursion/lista";
+        return "lista_old";
     }
 
     @GetMapping(value = "/excursion/{id}")

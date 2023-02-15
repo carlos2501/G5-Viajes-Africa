@@ -1,13 +1,11 @@
 package com.example.ProyectoEOI.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
-@Data
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,4 +20,5 @@ public class ReservaDTO {
     private boolean pagada;
     private boolean activo;
     private Long idUsuario;
+    private Long idExcursion;
 }

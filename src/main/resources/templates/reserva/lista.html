@@ -48,7 +48,6 @@
 <h3 class="titulo_reservas">MIS RESERVAS:</h3>
 <div class="container">
     <div class="row" th:if="${reservaList!=null and !reservaList.empty}">
-        <input th:type="hidden" th:field="${idUsuario}">
         <table class="table table-bordered table-hover">
             <tr>
                 <th>Nombre</th>
